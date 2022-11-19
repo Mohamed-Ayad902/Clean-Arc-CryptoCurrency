@@ -20,7 +20,11 @@ class CoinsListViewModel @Inject constructor(private val getCoinsUseCase: GetCoi
     private val _coinsListUiState = MutableStateFlow(CoinsListUiState())
     val coinsListUiState: StateFlow<CoinsListUiState> = _coinsListUiState
 
-    fun getCoinsList() {
+    init {
+        getCoinsList()
+    }
+
+    private fun getCoinsList() {
         viewModelScope.launch(Dispatchers.IO) {
             getCoinsUseCase().collectLatest { response ->
                 when (response) {

@@ -1,5 +1,7 @@
 package com.example.cleancryptocurrency.data.dto
 
+import com.example.cleancryptocurrency.domain.models.CoinDetails
+
 data class CoinDetailsDto(
     val description: String,
     val development_status: String,
@@ -26,3 +28,17 @@ data class CoinDetailsDto(
     val type: String,
     val whitepaper: Whitepaper
 )
+
+fun CoinDetailsDto.toCoin() =
+    CoinDetails(
+        description = description,
+        id = id,
+        is_active = is_active,
+        logo = logo,
+        name = name,
+        rank = rank,
+        symbol = symbol,
+        tags = tags.map { it.name },
+        team = team,
+        type = type
+    )

@@ -62,6 +62,7 @@ class CoinsListFragment : Fragment() {
                     }
                     if (state.error.isNotEmpty()) {
                         tvError.visibility = View.VISIBLE
+                        tvError.text = state.error
                         progressBar.visibility = View.GONE
                     }
                 }
