@@ -1,5 +1,6 @@
 package com.example.cleancryptocurrency.data.dto
 
+import com.example.cleancryptocurrency.data.source.local.CoinEntity
 import com.example.cleancryptocurrency.domain.models.Coin
 
 data class CoinDto(
@@ -12,8 +13,8 @@ data class CoinDto(
     val type: String
 )
 
-fun CoinDto.toCoin() =
-    Coin(
+fun CoinDto.toCoinEntity() =
+    CoinEntity(
         id = id,
         is_active = is_active,
         name = name,
